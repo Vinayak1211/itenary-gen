@@ -28,7 +28,7 @@ export function LoginForm() {
   const router = useRouter();
 
   const submitHandler = async (data: any) => {
-    const res = await axios.post("http://localhost:8080/login", data);
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login`, data);
     if (res.status === 200) {
       console.log("User logged in successfully");
       localStorage.setItem("access_token", res.data.token);

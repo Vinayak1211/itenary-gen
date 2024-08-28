@@ -28,7 +28,7 @@ export function SignupForm() {
   const router = useRouter();
 
   const submitHandler = async (data: any) => {
-    const res = await axios.post("http://localhost:8080/signup", data);
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/signup`, data);
     if (res.status === 200) {
       console.log("User created successfully");
       router.push("/login");
